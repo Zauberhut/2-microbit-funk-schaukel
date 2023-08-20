@@ -4,10 +4,7 @@ radio.onReceivedNumber(function (receivedNumber) {
     // Licht wird an der Spitze empfangen
     Position = striplaenge
 })
-input.onButtonPressed(Button.A, function () {
-    AnzahlPixel += -1
-})
-input.onButtonPressed(Button.AB, function () {
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
     if (onoff != 0) {
         radio.sendNumber(AnzahlPixel)
         radio.sendValue("rot", rot)
@@ -18,6 +15,9 @@ input.onButtonPressed(Button.AB, function () {
         radio.sendNumber(0)
         onoff = 1
     }
+})
+input.onButtonPressed(Button.A, function () {
+    AnzahlPixel += -1
 })
 input.onButtonPressed(Button.B, function () {
     AnzahlPixel += 1
